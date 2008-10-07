@@ -1,0 +1,33 @@
+plugins:
+
+  - module: Input::File
+    config:
+        path: /var/log/httpd
+        rule:
+            name: journal.access_log*
+            age:
+                newer: 1D
+
+  - module: Parse::Common
+    config:
+        format: :extended
+
+  - module: Parse::Normalize
+    config: 
+        time_zone: Asia/Tokyo
+  
+  - module: Filter::AccessTime
+    config:
+        timezone: Asia/Tokyo
+        from:
+            subtract:
+                days: 1
+        to:
+            subtract:
+                days: 0
+  
+  - module: Analyze::AccessCount
+    config:
+        truncate_to: hour
+
+  - module: Output::Dump
