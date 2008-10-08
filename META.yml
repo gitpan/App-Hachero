@@ -20,8 +20,10 @@ requires:
   Class::Accessor::Fast: 0
   Class::Component: 0
   DBIx::Class::Schema::Loader: 0
+  DateTime: 0
   DateTime::Format::HTTP: 0
   DateTime::Format::MySQL: 0
+  DateTime::TimeZone: 0
   File::Basename: 0
   File::Find::Rule: 0
   File::Find::Rule::Age: 0
@@ -40,4 +42,4 @@ requires:
   perl: 5.8.0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.01
+version: 0.01_01
