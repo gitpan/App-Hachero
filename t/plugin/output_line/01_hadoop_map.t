@@ -1,11 +1,11 @@
 use strict;
 use warnings;
-use Test::More tests => 4;
+use Test::More tests => 5;
 use App::Hachero;
+use App::Hachero::Plugin::Analyze::AccessCount;
 use App::Hachero::Result;
 use URI;
 use File::Temp;
-use IO::All;
 use Digest::MD5 qw(md5_hex);
 
 BEGIN {
@@ -28,20 +28,24 @@ local *STDOUT;
 open STDOUT, '>', $out;
 
 my $app = App::Hachero->new({config => $config});
-my $res = App::Hachero::Result->new;
-$res->primary(['a']);
-$res->push({a => 1});
-my $primary = 'foo';
-my $secondary = md5_hex(1);
+my $res = App::Hachero::Plugin::Analyze::AccessCount::Result->new;
+my $dt = '2008-10-17 04:03:15';
+my $primary = 'AccessCount';
+my $secondary = md5_hex($dt);
+$res->push({datetime => $dt});
 $app->result({$primary => $res});
 $app->run_hook('output_line');
 close STDOUT;
 
-my $contents < io $out;
+open my $fh_out, '<', $out;
+my $contents = do {local $/; <$fh_out>};
+close $fh_out;
 my ($key,$value) = split(/\t/,$contents);
 
 is $key, "$primary-$secondary";
 my $VAR1;
 eval $value;
-isa_ok $VAR1, 'App::Hachero::Result::Data';
-is_deeply $VAR1, {a => 1, count => 1};
+isa_ok $VAR1, 'App::Hachero::Plugin::Analyze::AccessCount::Result';
+my ($data) = $VAR1->values;
+isa_ok $data, 'App::Hachero::Result::Data';
+is_deeply $data->hashref, {datetime => $dt, count => 1};

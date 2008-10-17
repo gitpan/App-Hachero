@@ -19,18 +19,20 @@ no_index:
 requires:
   Class::Accessor::Fast: 0
   Class::Component: 0
+  Class::Data::Inheritable: 0
   DBIx::Class::Schema::Loader: 0
   DateTime: 0
   DateTime::Format::HTTP: 0
   DateTime::Format::MySQL: 0
   DateTime::TimeZone: 0
+  Digest::MD5: 0
   File::Basename: 0
   File::Find::Rule: 0
   File::Find::Rule::Age: 0
   File::Spec: 0
   File::Temp: 0
+  File::stat: 0
   HTTP::DetectUserAgent: 0
-  IO::All: 0
   Module::Collect: 0
   Net::FTP: 0
   Regexp::Log::Common: 0
@@ -38,8 +40,9 @@ requires:
   Template: 0
   UNIVERSAL::require: 0
   URI: 0
+  URI::QueryParam: 0
   YAML: 0
   perl: 5.8.0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.01_01
+version: 0.01_02
