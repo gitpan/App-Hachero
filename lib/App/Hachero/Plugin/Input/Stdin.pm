@@ -3,14 +3,9 @@ use strict;
 use warnings;
 use base qw(App::Hachero::Plugin::Base);
 
-sub init {
-    my ($self, $context) = @_;
-    $self->{fh} = *STDIN;
-}
-
 sub input : Hook {
     my ($self, $context, $args) = @_;
-    my $fh = $self->{fh};
+    my $fh = *STDIN;
     my $line = <$fh>;
     $context->currentline( $line );
 }
@@ -19,8 +14,6 @@ sub input : Hook {
 __END__
 
 =pod
-
-=encoding utf8
 
 =head1 NAME
 

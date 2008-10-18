@@ -2,7 +2,7 @@ package App::Hachero;
 use strict;
 use warnings;
 use 5.00800;
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 use Class::Component;
 use base qw(Class::Accessor::Fast);
 use UNIVERSAL::require;
@@ -28,6 +28,7 @@ sub new {
     my $self = $class->SUPER::new($args);
     $self->result({});
     $context = $self;
+    $self->initialize;
     $self;
 }
 
@@ -68,7 +69,6 @@ sub run_hook_and_check {
 sub run {
     my $self = shift;
     $self->log(debug => sprintf ('run start: %s', scalar localtime));
-    $self->initialize;
     $self->run_hook('fetch');
     while( $self->set_currentline ){
         $self->run_hook_and_check('parse') or next;
@@ -113,8 +113,6 @@ sub class_component_load_plugin_resolver {
 __END__
 
 =pod
-
-=encoding utf-8
 
 =head1 NAME
 

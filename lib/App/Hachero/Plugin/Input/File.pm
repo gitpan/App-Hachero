@@ -6,10 +6,6 @@ use File::Find::Rule;
 use File::Find::Rule::Age;
 use File::stat;
 
-sub init {
-    my ($self, $context) = @_;
-}
-
 sub _fetch {
     my ($self, $context) = @_;
     $self->{rule} ||= $self->_get_rule($context);
@@ -68,8 +64,6 @@ sub input : Hook {
 __END__
 
 =pod
-
-=encoding utf8
 
 =head1 NAME
 

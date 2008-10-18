@@ -4,7 +4,7 @@ use warnings;
 use base qw(App::Hachero::Plugin::Base);
 use Regexp::Log::Common;
 
-sub init {
+sub initialize : Hook {
     my ($self, $context) = @_;
     my $regexp = Regexp::Log::Common->new(
         format => $self->config->{config}->{format} || ':extended',
@@ -24,8 +24,6 @@ sub parse : Hook {
 __END__
 
 =pod
-
-=encoding utf8
 
 =head1 NAME
 
