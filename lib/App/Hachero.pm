@@ -2,7 +2,7 @@ package App::Hachero;
 use strict;
 use warnings;
 use 5.00800;
-our $VERSION = '0.01_03';
+our $VERSION = '0.02';
 use Class::Component;
 use base qw(Class::Accessor::Fast);
 use UNIVERSAL::require;
@@ -102,7 +102,9 @@ sub initialize {
 
 sub class_component_load_plugin_resolver {
     my ($self, $package) = @_;
-    $package = "App::Hachero::Plugin::$package";
+    if ( $package !~ m{App::Hachero::Plugin::} ) {
+        $package = "App::Hachero::Plugin::$package";
+    }
     for my $pkg (@{ $packages_from_plugin_path }) {
         return $pkg if $pkg->package eq $package;
     }
