@@ -33,7 +33,7 @@ requires:
   File::Temp: 0
   File::stat: 0
   HTTP::DetectUserAgent: 0
-  Module::Collect: 0
+  Module::Collect: 0.05
   Net::FTP: 0
   Regexp::Log::Common: 0
   Regexp::Wildcards: 0
@@ -45,4 +45,4 @@ requires:
   perl: 5.8.0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.03
+version: 0.04
