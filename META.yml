@@ -4,7 +4,8 @@ author:
   - 'Takaaki Mizuno <cpan@takaaki.info>'
 build_requires:
   ExtUtils::MakeMaker: 6.42
-  Test::More: 0
+  Test::MockModule: 0
+  Test::More: 0.88
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
@@ -39,7 +40,8 @@ requires:
   URI: 0
   URI::QueryParam: 0
   YAML: 0
-  perl: 5.8.0
+  perl: 5.8.1
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.07
+  repository: git://github.com/lopnor/App-Hachero.git
+version: 0.08

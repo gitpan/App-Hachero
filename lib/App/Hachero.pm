@@ -1,8 +1,8 @@
 package App::Hachero;
 use strict;
 use warnings;
-use 5.00800;
-our $VERSION = '0.07';
+use 5.008001;
+our $VERSION = '0.08';
 use Class::Component;
 use base qw(Class::Accessor::Fast);
 use UNIVERSAL::require;
@@ -78,6 +78,7 @@ sub run {
         $self->run_hook_and_check('analyze') or next;
         $self->run_hook('output_line');
     }
+    $self->run_hook('summarize');
     $self->run_hook('output');
     $self->run_hook('cleanup');
     $self->log(debug => sprintf ('run end: %s', scalar localtime));
