@@ -4,12 +4,10 @@ author:
   - 'Takaaki Mizuno <cpan@takaaki.info>'
 build_requires:
   ExtUtils::MakeMaker: 6.42
-  Test::MockModule: 0
-  Test::More: 0.88
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.95'
+generated_by: 'Module::Install version 0.99'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -23,25 +21,37 @@ requires:
   Class::Accessor::Fast: 0
   Class::Component: 0
   Class::Data::Inheritable: 0
+  DBIx::Class::Schema::Loader: 0
   DateTime: 0
   DateTime::Format::HTTP: 0
   DateTime::Format::MySQL: 0
   DateTime::TimeZone: 0
   Digest::MD5: 0
   File::Basename: 0
+  File::Find::Rule: 0
+  File::Find::Rule::Age: 0
   File::Spec: 0
   File::Temp: 0
   File::stat: 0
   Filter::Util::Call: 0
+  HTTP::DetectUserAgent: 0
+  IO::Uncompress::Gunzip: 0
   Module::Collect: 0.05
+  Net::Amazon::S3: 0
+  Net::FTP: 0
   Regexp::Log::Common: 0
+  Regexp::Wildcards: 0
+  Template: 0
+  Test::MockModule: 0
+  Test::More: 0.88
   Text::CSV_XS: 0
   UNIVERSAL::require: 0
   URI: 0
   URI::QueryParam: 0
+  Web::Scraper: 0
   YAML: 0
   perl: 5.8.1
 resources:
   license: http://dev.perl.org/licenses/
   repository: git://github.com/lopnor/App-Hachero.git
-version: 0.11
+version: 0.13
